@@ -30,6 +30,10 @@
         background: #64748b; 
       }
     </style>
+    <script>
+      // Polyfill process.env for static hosting environments
+      window.process = window.process || { env: { API_KEY: '' } };
+    </script>
   <script type="importmap">
 {
   "imports": {
@@ -44,6 +48,6 @@
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
