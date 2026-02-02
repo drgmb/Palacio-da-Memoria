@@ -69,7 +69,10 @@ export const generateRoomImage = async (imagePrompt: string, style: string): Pro
     const fullPrompt = `Style: ${style}. Scene: ${imagePrompt}. High quality, detailed, atmospheric.`;
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash-image',
-      contents: { parts: [{ text: fullPrompt }] },
+      contents: fullPrompt,
+      config: {
+        responseModalities: ['IMAGE'],
+      },
     });
 
     if (response.candidates?.[0]?.content?.parts) {
