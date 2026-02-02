@@ -8,6 +8,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, (process as any).cwd(), '');
 
   return {
+    base: '/Palacio-da-Memoria/',
     plugins: [react()],
     define: {
       // Isso substitui 'process.env.API_KEY' pelo valor real da string durante o build.
